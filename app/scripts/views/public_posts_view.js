@@ -5,7 +5,8 @@
     className: 'allPosts',
 
     events: {
-      'click #navigate': 'goToLogin'
+      'click #navigate': 'goToLogin',
+      'click #logOut': 'logOut'
     },
 
     template: _.template($('#postsList').html()),
@@ -29,7 +30,15 @@
     goToLogin: function(e) {
       e.preventDefault();
       App.router.navigate('login', {trigger: true});
+    },
+
+    logOut: function(e){
+      e.preventDefault();
+      Parse.User.logOut();
+      App.user = null;
+      App.router.navigate('login', {trigger: true});
     }
+
   });
 
 

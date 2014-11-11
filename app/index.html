@@ -33,19 +33,21 @@
       <li class="" id="<%= objectId %>">
         <h3><%= title %></h3>
         <button id="navigate">Log In</button>
+        <button id="logOut">Log Out</button>
       </li>
     </script>
 
     <script type="text/template" id="logInForm">
+      <h3>Log In</h3>
       <form id="logIn">
         <input id="username" type="text" placeholder="Enter User Name" />
         <input id="password" type="password" placeholder="Enter Password" />
         <button>Log In</button>
       </form>
-
+      <h3>Sign Up</h3>
       <form id="signUp">
-        <input id="username" type="text" placeholder="New User" />
-        <input id="password" type="password" placeholder="New Password" />
+        <input id="newUsername" type="text" placeholder="New User" />
+        <input id="newPassword" type="password" placeholder="New Password" />
         <button>Sign Up</button>
       </form>
     </script>
