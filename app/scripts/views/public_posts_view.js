@@ -4,7 +4,9 @@
     tagName: 'ul',
     className: 'allPosts',
 
-    events: {},
+    events: {
+      'click #navigate': 'goToLogin'
+    },
 
     template: _.template($('#postsList').html()),
 
@@ -17,13 +19,16 @@
 
     render: function () {
       var self = this;
-      console.log(this.collection);
+
       _.each(this.collection.models, function(p) {
-        console.log(p);
         self.$el.append(self.template(p.toJSON()));
       })
 
+    },
 
+    goToLogin: function(e) {
+      e.preventDefault();
+      App.router.navigate('login', {trigger: true});
     }
   });
 
