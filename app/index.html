@@ -24,18 +24,14 @@
   <body>
 
     <div class="wrapper">
-      <h1>The Blog</h1>
+      <nav>
+        <a href="#/"><h1>The Blog</h1></a>
+        <a id="navCreate" href="/#create">Create</a>
+        <a href="/#me">Me</a>
+        <button id="navLogin">Login</button>
+      </nav>
         <div class="container"></div>
-
     </div>
-
-    <script type="text/template" id="postsList">
-      <li class="" id="<%= objectId %>">
-        <h3><%= title %></h3>
-        <button id="navigate">Log In</button>
-        <button id="logOut">Log Out</button>
-      </li>
-    </script>
 
     <script type="text/template" id="logInForm">
       <h3>Log In</h3>
@@ -50,6 +46,23 @@
         <input id="newPassword" type="password" placeholder="New Password" />
         <button>Sign Up</button>
       </form>
+    </script>
+
+    <script type="text/template" id="postsList">
+      <li class="" id="<%= objectId %>">
+        <h3><%= title %></h3>
+      </li>
+    </script>
+
+    <script type="text/template" id="createPost">
+      <input type="text" id="title">
+      <textarea id="copy" cols="30" rows="10"></textarea>
+      <select id="categories" multiple="true">
+        <option value="">Category 1</option>
+        <option value="">Category 2</option>
+        <option value="">Category 3</option>
+        <option value="">Category 4</option>
+      </select>
     </script>
 
 
@@ -77,6 +90,7 @@
         <script src="scripts/routes/app_router.js"></script>
         <script src="scripts/views/login_view.js"></script>
         <script src="scripts/views/public_posts_view.js"></script>
+        <script src="scripts/views/create_post_view.js"></script>
         <script src="scripts/main.js"></script>
         <!-- endbuild -->
 </body>

@@ -38,7 +38,7 @@
           Parse.User.logIn(l, p, {
             success: function (user) {
               App.user = user;
-              App.router.navigate('', {trigger: true});
+              App.router.navigate('#/', {trigger: true});
             },
             error: function (user) {
               alert("Sign in better.");
