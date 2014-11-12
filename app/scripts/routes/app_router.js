@@ -4,7 +4,8 @@
     routes: {
       '': 'home',
       'login': 'Login',
-      'create': 'createPost'
+      'create': 'createPost',
+      'me': 'myPosts'
     },
 
     home: function() {
@@ -18,6 +19,10 @@
 
     createPost: function(){
       new App.Views.CreatePost();
+    },
+
+    myPosts: function(){
+      new App.Views.MyPosts({user: App.user});
     }
 
   });

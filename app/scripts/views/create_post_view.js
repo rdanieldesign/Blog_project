@@ -14,7 +14,7 @@
 
       this.render();
       $(".container").html(this.$el);
-      
+
     },
 
     render: function () {
@@ -37,7 +37,9 @@
       });
 
       // Set Access Control List
-      p.setACL(new Parse.ACL(App.user));
+      var postACL = new Parse.ACL(App.user);
+      postACL.setPublicReadAccess(true);
+      p.setACL(postACL);
 
       p.save(null, {
         success: function () {
