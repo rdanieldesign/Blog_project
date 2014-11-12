@@ -5,7 +5,8 @@
       '': 'home',
       'login': 'Login',
       'create': 'createPost',
-      'me': 'myPosts'
+      'me': 'myPosts',
+      'edit/:objectId': 'editPost'
     },
 
     home: function() {
@@ -23,6 +24,11 @@
 
     myPosts: function(){
       new App.Views.MyPosts({user: App.user});
+    },
+
+    editPost: function(objectId){
+      var newP = App.posts.get(objectId);
+      new App.Views.EditPost({objectId: objectId, post: newP});
     }
 
   });

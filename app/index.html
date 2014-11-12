@@ -51,12 +51,26 @@
     <script type="text/template" id="postsList">
       <li class="" id="<%= objectId %>">
         <h3><%= title %></h3>
+        <a href="/#edit/<%= objectId %>">Edit Post</a>
       </li>
     </script>
 
     <script type="text/template" id="createPost">
       <input type="text" id="title">
       <textarea id="copy" cols="30" rows="10"></textarea>
+      <select id="categories" multiple="true">
+        <option value="">Category 1</option>
+        <option value="">Category 2</option>
+        <option value="">Category 3</option>
+        <option value="">Category 4</option>
+      </select>
+      <button id="publish">Create Post</button>
+      <button id="draft">Save as Draft</button>
+    </script>
+
+    <script type="text/template" id="editPost">
+      <input type="text" id="title" value="<%= title %>">
+      <textarea id="copy" cols="30" rows="10"><%= copy %></textarea>
       <select id="categories" multiple="true">
         <option value="">Category 1</option>
         <option value="">Category 2</option>
@@ -93,6 +107,7 @@
         <script src="scripts/views/login_view.js"></script>
         <script src="scripts/views/public_posts_view.js"></script>
         <script src="scripts/views/create_post_view.js"></script>
+        <script src="scripts/views/edit_post_view.js"></script>
         <script src="scripts/views/my_posts_view.js"></script>
         <script src="scripts/main.js"></script>
         <!-- endbuild -->
