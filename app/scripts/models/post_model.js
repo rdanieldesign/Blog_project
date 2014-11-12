@@ -7,6 +7,8 @@
     defaults: {
       title: '',
       copy: '',
+      categories: '',
+      user: '',
       published: false
     },
 

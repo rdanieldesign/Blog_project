@@ -1,27 +1,50 @@
 (function () {
-  App.Views.PublicPosts = Parse.View.extend({
+  App.Views.CreatePost = Parse.View.extend({
 
-    tagName: 'ul',
-    className: 'allPosts',
+    tagName: 'form',
+    className: 'createForm',
 
-    events: {},
+    events: {
+      'click #publish': 'createPost'
+    },
 
-    template: _.template($('#postsList').html()),
+    template: _.template($('#createPost').html()),
 
-    initialize: function (options) {
-      this.options = options;
+    initialize: function () {
 
       this.render();
       $(".container").html(this.$el);
+      
     },
 
     render: function () {
       var self = this;
 
-      _.each(this.collection.models, function(p) {
-        self.$el.append(self.template(p.toJSON()));
-      })
+      $(".container").empty();
 
+      this.$el.html(this.template());
+
+    },
+
+    createPost: function(e){
+      e.preventDefault();
+
+      var p = new App.Models.Post({
+        title: $('#title').val(),
+        copy: $('#copy').val(),
+        published: true,
+        user: App.user
+      });
+
+      // Set Access Control List
+      p.setACL(new Parse.ACL(App.user));
+
+      p.save(null, {
+        success: function () {
+          App.posts.add(p);
+          App.router.navigate('', { trigger: true });
+        }
+      });
     }
 
   });

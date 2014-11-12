@@ -3,7 +3,8 @@
 
     routes: {
       '': 'home',
-      'login': 'Login'
+      'login': 'Login',
+      'create': 'createPost'
     },
 
     home: function() {
@@ -13,7 +14,12 @@
 
     Login: function () {
       new App.Views.Login();
+    },
+
+    createPost: function(){
+      new App.Views.CreatePost();
     }
+
   });
 
 
