@@ -18,9 +18,16 @@
     render: function () {
       var self = this;
 
-      _.each(this.collection.models, function(p) {
-        self.$el.append(self.template(p.toJSON()));
-      })
+
+      var myPost_query = new Parse.Query(App.Models.Post);
+      myPost_query.equalTo('published', true);
+      myPost_query.find({
+        success: function(posts){
+        _.each(posts, function(p) {
+              self.$el.append(self.template(p.toJSON()));
+          });
+        }
+      });
 
     }
 

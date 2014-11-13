@@ -5,7 +5,8 @@
     className: 'createForm',
 
     events: {
-      'click #publish': 'editPost'
+      'click #publish': 'editPost',
+      'click #draft' : 'draftPost'
     },
 
     template: _.template($('#editPost').html()),
@@ -43,21 +44,48 @@
     editPost: function(e){
       e.preventDefault();
 
-      var newP = this.options.post;
+    this.options.post.set({
+          title: $('#title').val(),
+          copy: $('#copy').val(),
+          published: true,
+          user: App.user
+        });
 
-      newP.set({
+        // Set Access Control List
+        // var postACL = new Parse.ACL(App.user);
+        // postACL.setPublicReadAccess(true);
+        // p.setACL(postACL);
+
+        this.options.post.save(null, {
+          success: function () {
+            App.router.navigate('', { trigger: true });
+          }
+        });
+      },
+
+
+    draftPost: function(e){
+      e.preventDefault();
+
+      this.options.post.set({
         title: $('#title').val(),
         copy: $('#copy').val(),
-        published: true
+        published: false,
+        user: App.user
       });
 
-      newP.save(null, {
+      // Set Access Control List
+      // var postACL = new Parse.ACL(App.user);
+      // postACL.setPublicReadAccess(true);
+      // p.setACL(postACL);
+
+      this.options.post.save(null, {
         success: function () {
-          // App.posts.add(newP);
-          App.router.navigate('me', { trigger: true });
+          App.router.navigate('', { trigger: true });
         }
       });
     }
+
 
   });
 

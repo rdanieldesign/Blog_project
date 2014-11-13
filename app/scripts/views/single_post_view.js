@@ -3,7 +3,7 @@
 
 
     events: {
-      'click #publish': 'editPost'
+      'submit #addComment' : 'addComment'
     },
 
     template: _.template($('#singlePost').html()),
@@ -26,23 +26,46 @@
 
     },
 
-    editPost: function(e){
+     render: function () {
+
+      this.$el.empty();
+
+      this.$el.html(this.template(this.options.post.toJSON()));
+
+      var commentTemplate = _.template($('#commentTemp').html());
+      var comments_query = new Parse.Query(App.Models.Comment);
+      comments_query.equalTo('parent', this.options.post);
+
+      this.$el.append('<h2>Comments</h2><ul class="comments"></ul>');
+
+      comments_query.find({
+        success: function (results) {
+
+          _.each(results, function(comment) {
+            $('ul.comments').append(commentTemplate(comment.toJSON()));
+          })
+
+        }
+      })
+
+    },
+
+    addComment: function (e) {
       e.preventDefault();
 
-      var newP = this.options.post;
+      var comment = new App.Models.Comment({
 
-      newP.set({
-        title: $('#title').val(),
-        copy: $('#copy').val(),
-        published: true
+        commentText: $('#commentText').val(),
+        parent: this.options.post
+
       });
 
-      newP.save(null, {
+      comment.save(null, {
         success: function () {
-          // App.posts.add(newP);
-          App.router.navigate('me', { trigger: true });
+          App.router.navigate('', {trigger: true});
         }
       });
+
     }
 
   });

@@ -92,8 +92,19 @@
         <option value="">Category 3</option>
         <option value="">Category 4</option>
       </select>
+
+      <form id="addComment">
+          <textarea id="commentText" placeholder="Add Your Comments"></textarea>
+          <button>Add Comment</button>
+      </form>
+
     </script>
 
+
+
+    <script type="text/template" id="commentTemp">
+      <li><%= commentText %></li>
+    </script>
 
 
     <!-- build:js scripts/vendor.js -->
@@ -115,6 +126,7 @@
 
         <!-- build:js scripts/main.js -->
         <script src="scripts/models/post_model.js"></script>
+        <script src="scripts/models/comments_model.js"></script>
         <script src="scripts/collections/posts_collection.js"></script>
         <script src="scripts/routes/app_router.js"></script>
         <script src="scripts/views/login_view.js"></script>
