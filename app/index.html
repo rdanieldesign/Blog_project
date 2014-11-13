@@ -51,6 +51,7 @@
     <script type="text/template" id="postsList">
       <li class="" id="<%= objectId %>">
         <h3><%= title %></h3>
+        <a href="/#single/<%= objectId %>">Read Post</a>
         <a href="/#edit/<%= objectId %>">Edit Post</a>
       </li>
     </script>
@@ -81,6 +82,18 @@
       <button id="draft">Save as Draft</button>
     </script>
 
+    <script type="text/template" id="singlePost">
+      <h2 id="singleTitle"><%= title %></h2>
+      <h5 id="singleAuthor"><%= user %></h5>
+      <p id="singleCopy"><%= copy %></p>
+      <select id="categories" multiple="true">
+        <option value="">Category 1</option>
+        <option value="">Category 2</option>
+        <option value="">Category 3</option>
+        <option value="">Category 4</option>
+      </select>
+    </script>
+
 
 
     <!-- build:js scripts/vendor.js -->
@@ -107,6 +120,7 @@
         <script src="scripts/views/login_view.js"></script>
         <script src="scripts/views/public_posts_view.js"></script>
         <script src="scripts/views/create_post_view.js"></script>
+        <script src="scripts/views/single_post_view.js"></script>
         <script src="scripts/views/edit_post_view.js"></script>
         <script src="scripts/views/my_posts_view.js"></script>
         <script src="scripts/main.js"></script>

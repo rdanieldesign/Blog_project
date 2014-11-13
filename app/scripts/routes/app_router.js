@@ -6,7 +6,8 @@
       'login': 'Login',
       'create': 'createPost',
       'me': 'myPosts',
-      'edit/:objectId': 'editPost'
+      'edit/:objectId': 'editPost',
+      'single/:objectId': 'singlePost'
     },
 
     home: function() {
@@ -29,6 +30,11 @@
     editPost: function(objectId){
       var newP = App.posts.get(objectId);
       new App.Views.EditPost({objectId: objectId, post: newP});
+    },
+
+    singlePost: function(objectId){
+      var singleP = App.posts.get(objectId);
+      new App.Views.SinglePost({post: singleP});
     }
 
   });
