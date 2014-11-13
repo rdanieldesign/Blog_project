@@ -56,7 +56,8 @@
       var comment = new App.Models.Comment({
 
         commentText: $('#commentText').val(),
-        parent: this.options.post
+        parent: this.options.post,
+        user: App.user
 
       });
 

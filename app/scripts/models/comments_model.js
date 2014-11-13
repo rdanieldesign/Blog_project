@@ -4,8 +4,11 @@
 
     className: 'Comment',
 
+    idAttribute: 'objectId',
+
     defaults: {
-      commentText: ''
+      commentText: '',
+      user: ''
     }
 
   });
