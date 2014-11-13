@@ -47,6 +47,7 @@
     this.options.post.set({
           title: $('#title').val(),
           copy: $('#copy').val(),
+          category: $('#categories option:selected').val(),
           published: true,
           user: App.user
         });
@@ -70,6 +71,7 @@
       this.options.post.set({
         title: $('#title').val(),
         copy: $('#copy').val(),
+        category: $('#categories option:selected').val(),
         published: false,
         user: App.user
       });

@@ -42,7 +42,8 @@
       </form>
       <h3>Sign Up</h3>
       <form id="signUp">
-        <input id="newUsername" type="text" placeholder="New User" />
+      <input id="fullname" type="text" placeholder="Full Name" />
+        <input id="newUsername" type="text" placeholder="New Username" />
         <input id="newPassword" type="password" placeholder="New Password" />
         <button>Sign Up</button>
       </form>
@@ -57,13 +58,18 @@
     </script>
 
     <script type="text/template" id="createPost">
+      <h3>Title</h3>
       <input type="text" id="title">
+      <h3>Copy</h3>
       <textarea id="copy" cols="30" rows="10"></textarea>
-      <select id="categories" multiple="true">
-        <option value="">Category 1</option>
-        <option value="">Category 2</option>
-        <option value="">Category 3</option>
-        <option value="">Category 4</option>
+      <h3>Category</h3>
+      <select id="categories">
+        <option value="music">Music</option>
+        <option value="fashion" >Fashion</option>
+        <option value="art">Art</option>
+        <option value="literature">Literature</option>
+        <option value="food">Food</option>
+        <option value="technology">Technology</option>
       </select>
       <button id="publish">Create Post</button>
       <button id="draft">Save as Draft</button>
@@ -84,13 +90,9 @@
 
     <script type="text/template" id="singlePost">
       <h2 id="singleTitle"><%= title %></h2>
-      <h5 id="singleAuthor"><%= user %></h5>
+      <a href="/#author/<%= objectId %>"><%= author %></a>
       <p id="singleCopy"><%= copy %></p>
-      <select id="categories" multiple="true">
-        <option value="">Category 1</option>
-        <option value="">Category 2</option>
-        <option value="">Category 3</option>
-        <option value="">Category 4</option>
+      <h5 id="categories"><%= category %></p>
       </select>
 
       <form id="addComment">
@@ -102,7 +104,9 @@
 
 
     <script type="text/template" id="commentTemp">
-      <li><%= commentText %></li>
+      <li><%= commentText %>
+      by <a href="/#author/<%= objectId %>"><%= author %></a></li>
+
     </script>
 
 

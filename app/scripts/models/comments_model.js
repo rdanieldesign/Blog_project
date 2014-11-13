@@ -8,7 +8,8 @@
 
     defaults: {
       commentText: '',
-      user: ''
+      user: '',
+      author: ''
     }
 
   });

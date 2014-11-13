@@ -33,8 +33,10 @@
       var p = new App.Models.Post({
         title: $('#title').val(),
         copy: $('#copy').val(),
+        category: $('#categories option:selected').val(),
         published: true,
-        user: App.user
+        user: App.user,
+        author: App.user.attributes.name
       });
 
       // Set Access Control List
@@ -56,8 +58,10 @@
       var p = new App.Models.Post({
         title: $('#title').val(),
         copy: $('#copy').val(),
+        category: $('#categories option:selected').val(),
         published: false,
-        user: App.user
+        user: App.user,
+        author: App.user.attributes.name
       });
 
       // Set Access Control List

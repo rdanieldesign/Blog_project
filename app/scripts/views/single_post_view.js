@@ -11,6 +11,7 @@
     initialize: function (options) {
 
       this.options = options;
+      console.log(this.options);
 
       this.render();
       $(".container").html(this.$el);
@@ -57,7 +58,8 @@
 
         commentText: $('#commentText').val(),
         parent: this.options.post,
-        user: App.user
+        user: App.user,
+        author: App.user.attributes.name
 
       });
 

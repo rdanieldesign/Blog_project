@@ -7,14 +7,14 @@
     defaults: {
       title: '',
       copy: '',
-      categories: '',
+      category: '',
       user: '',
+      author: '',
       published: false
     },
 
-    initialize: function () {
-     console.log('added');
-    }
+    initialize: function () {}
+
   })
 
 
