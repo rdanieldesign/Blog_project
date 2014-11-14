@@ -1,8 +1,8 @@
 (function () {
   App.Views.Category = Parse.View.extend({
 
-    tagName: 'ul',
-    className: 'myPosts',
+    // tagName: 'ul',
+    // className: 'myPosts',
 
     events: {},
 
@@ -18,7 +18,7 @@
     },
 
     render: function () {
-      
+
       var self = this;
 
       var myPost_query = new Parse.Query(App.Models.Post);
