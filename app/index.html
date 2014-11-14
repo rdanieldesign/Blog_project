@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../bower_components/normalize-css/normalize.css" />
     <!-- endbower -->
     <!-- endbuild -->
-
+    <link href='http://fonts.googleapis.com/css?family=Wire+One' rel='stylesheet' type='text/css'>
     <!-- build:css styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
@@ -25,23 +25,25 @@
 
     <div class="wrapper">
       <nav>
-        <a href="#/"><h1>The Blog</h1></a>
+        <a href="#/"><span>Word Bucket</span></a>
+        <div class="navBar">
         <a id="navCreate" href="/#create">Create</a>
         <a href="/#me">Me</a>
         <button id="navLogin">Login</button>
+      </div>
       </nav>
         <div class="container"></div>
     </div>
 
     <script type="text/template" id="logInForm">
-      <h3>Log In</h3>
       <form id="logIn">
+        <h3 class="mainPage">Log In</h3>
         <input id="username" type="text" placeholder="Enter User Name" />
         <input id="password" type="password" placeholder="Enter Password" />
         <button>Log In</button>
       </form>
-      <h3>Sign Up</h3>
       <form id="signUp">
+      <h3 class="mainPage">Sign Up</h3>
       <input id="fullname" type="text" placeholder="Full Name" />
         <input id="newUsername" type="text" placeholder="New Username" />
         <input id="newPassword" type="password" placeholder="New Password" />
