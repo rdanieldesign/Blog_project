@@ -78,11 +78,13 @@
     <script type="text/template" id="editPost">
       <input type="text" id="title" value="<%= title %>">
       <textarea id="copy" cols="30" rows="10"><%= copy %></textarea>
-      <select id="categories" multiple="true">
-        <option value="">Category 1</option>
-        <option value="">Category 2</option>
-        <option value="">Category 3</option>
-        <option value="">Category 4</option>
+      <select id="categories">
+        <option value="music">Music</option>
+        <option value="fashion" >Fashion</option>
+        <option value="art">Art</option>
+        <option value="literature">Literature</option>
+        <option value="food">Food</option>
+        <option value="technology">Technology</option>
       </select>
       <button id="publish">Create Post</button>
       <button id="draft">Save as Draft</button>
@@ -90,10 +92,9 @@
 
     <script type="text/template" id="singlePost">
       <h2 id="singleTitle"><%= title %></h2>
-      <a href="/#author/<%= objectId %>"><%= author %></a>
+      <a href="/#author/<%= user.objectId %>"><%= author %></a>
       <p id="singleCopy"><%= copy %></p>
       <h5 id="categories"><%= category %></p>
-      </select>
 
       <form id="addComment">
           <textarea id="commentText" placeholder="Add Your Comments"></textarea>
@@ -105,8 +106,7 @@
 
     <script type="text/template" id="commentTemp">
       <li><%= commentText %>
-      by <a href="/#author/<%= objectId %>"><%= author %></a></li>
-
+      by <a href="/#author/<%= user.objectId %>"><%= author %></a></li>
     </script>
 
 

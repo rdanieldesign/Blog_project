@@ -8,7 +8,7 @@
       'me': 'myPosts',
       'edit/:objectId': 'editPost',
       'single/:objectId': 'singlePost',
-      'author/:user' : 'goToAuthor'
+      'author/:userId' : 'goToAuthor'
     },
 
     home: function() {
@@ -35,13 +35,18 @@
 
     singlePost: function(objectId){
       var singleP = App.posts.get(objectId);
-      new App.Views.SinglePost({post: singleP});
+      var postAuthor = singleP.attributes.user;
+      new App.Views.SinglePost({post: singleP, user: postAuthor});
     },
 
-    goToAuthor: function(user){
-      var post = App.posts.get(user);
-      var postAuthor = post.attributes.user;
-      new App.Views.MyPosts({user: postAuthor});
+    goToAuthor: function(userId){
+      var query = new Parse.Query('User');
+      query.equalTo('objectId', userId);
+      query.find({
+        success: function(user){
+          new App.Views.MyPosts({user: user[0]});
+        }
+      });
     }
 
   });

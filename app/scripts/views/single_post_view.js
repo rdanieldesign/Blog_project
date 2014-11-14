@@ -11,7 +11,6 @@
     initialize: function (options) {
 
       this.options = options;
-      console.log(this.options);
 
       this.render();
       $(".container").html(this.$el);
@@ -19,15 +18,10 @@
     },
 
     render: function () {
+
       var self = this;
 
       $(".container").empty();
-
-      this.$el.html(this.template(this.options.post.toJSON()));
-
-    },
-
-     render: function () {
 
       this.$el.empty();
 
@@ -37,7 +31,7 @@
       var comments_query = new Parse.Query(App.Models.Comment);
       comments_query.equalTo('parent', this.options.post);
 
-      this.$el.append('<h2>Comments</h2><ul class="comments"></ul>');
+      this.$el.append('<h3>Comments</h3><ul class="comments"></ul>');
 
       comments_query.find({
         success: function (results) {

@@ -11,7 +11,6 @@
     initialize: function (options) {
 
       this.options = options;
-      console.log(this.options.user);
 
       this.render();
       $(".container").html(this.$el);
