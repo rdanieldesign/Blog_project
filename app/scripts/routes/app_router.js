@@ -8,7 +8,8 @@
       'me': 'myPosts',
       'edit/:objectId': 'editPost',
       'single/:objectId': 'singlePost',
-      'author/:userId' : 'goToAuthor'
+      'author/:userId' : 'goToAuthor',
+      'category/:category': 'goToCategory'
     },
 
     home: function() {
@@ -47,6 +48,10 @@
           new App.Views.MyPosts({user: user[0]});
         }
       });
+    },
+
+    goToCategory: function(category){
+      new App.Views.Category({category: category});
     }
 
   });
