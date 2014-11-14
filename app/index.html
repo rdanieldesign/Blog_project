@@ -55,11 +55,20 @@
     </script>
 
     <script type="text/template" id="postsList">
+      <% if(App.user !== null){ %>
+      <% if(App.user.id === user.objectId){ %>
       <li class="" id="<%= objectId %>">
         <h3><%= title %></h3>
         <a href="/#single/<%= objectId %>">Read Post</a>
         <a href="/#edit/<%= objectId %>">Edit Post</a>
       </li>
+      <% }} else { %>
+      <% if(published === true){ %>
+      <li class="" id="<%= objectId %>">
+        <h3><%= title %></h3>
+        <a href="/#single/<%= objectId %>">Read Post</a>
+      </li>
+      <% }} %>
     </script>
 
     <script type="text/template" id="createPost">
@@ -100,12 +109,12 @@
       <a href="/#author/<%= user.objectId %>"><%= author %></a>
       <p id="singleCopy"><%= copy %></p>
       <a href="/#category/<%= category %>"><%= category %></a>
-
+      <% if(App.user != null){ %>
       <form id="addComment">
           <textarea id="commentText" placeholder="Add Your Comments"></textarea>
           <button>Add Comment</button>
       </form>
-
+      <% } %>
     </script>
 
 
