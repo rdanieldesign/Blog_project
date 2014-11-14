@@ -49,6 +49,9 @@
     addComment: function (e) {
       e.preventDefault();
 
+      var self = this;
+      var current = this.options;
+
       var comment = new App.Models.Comment({
 
         commentText: $('#commentText').val(),
@@ -60,8 +63,8 @@
 
       comment.save(null, {
         success: function(){
-          console.log($('#commentText'));
-          $('#commentText').val("");
+          // $('#commentText')[0].reset();
+          self.initialize(current);
         }
       });
 
