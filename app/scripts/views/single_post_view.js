@@ -13,6 +13,7 @@
       this.options = options;
 
       this.render();
+
       $(".container").html(this.$el);
 
     },
@@ -58,8 +59,9 @@
       });
 
       comment.save(null, {
-        success: function () {
-          App.router.navigate('', {trigger: true});
+        success: function(){
+          console.log($('#commentText'));
+          $('#commentText').val("");
         }
       });
 

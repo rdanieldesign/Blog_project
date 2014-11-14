@@ -36,7 +36,7 @@
     singlePost: function(objectId){
       var singleP = App.posts.get(objectId);
       var postAuthor = singleP.attributes.user;
-      new App.Views.SinglePost({post: singleP, user: postAuthor});
+      new App.Views.SinglePost({post: singleP, user: postAuthor, collection: App.posts});
     },
 
     goToAuthor: function(userId){

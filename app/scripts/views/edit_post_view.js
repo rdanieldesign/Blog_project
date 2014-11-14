@@ -13,8 +13,6 @@
 
     initialize: function (options) {
 
-      console.log(this.options.post);
-
       this.options = options;
 
       this.render();
@@ -28,16 +26,6 @@
       $(".container").empty();
 
       this.$el.html(this.template(this.options.post.toJSON()));
-
-      // var myPost_query = new Parse.Query(App.Models.Post);
-      // myPost_query.equalTo('objectId', this.options.objectId);
-      // myPost_query.find({
-      //   success: function(post){
-      //     // _.each(posts, function(p) {
-      //       self.$el.html(self.template(post[0].toJSON()));
-      //     // });
-      //   }
-      // });
 
     },
 
