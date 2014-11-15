@@ -13,6 +13,7 @@
     },
 
     home: function() {
+      new App.Views.Nav({user: App.user});
       new App.Views.PublicPosts({ collection: App.posts});
     },
 

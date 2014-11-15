@@ -10,7 +10,6 @@
     template: _.template($('#logInForm').html()),
 
     initialize: function () {
-        console.log('hey');
       this.render();
       $(".container").html(this.$el);
     },
@@ -60,6 +59,7 @@
       Parse.User.logIn(l, p, {
         success: function (user) {
           App.user = user;
+          $('#navLogin').text('Logout');
           App.router.navigate('', {trigger: true});
         },
         error: function (user) {
