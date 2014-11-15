@@ -4,16 +4,18 @@
 
     tagName: 'nav',
 
-    events: {},
+    events: {
+      'click #navLogin': 'logOut'
+    },
 
     template: _.template($('#nav').html()),
 
-    initialize: function () {
+    initialize: function (options) {
       this.render();
 
-      console.log(this);
+      console.log(this.options.user);
 
-      // this.listenTo(User, "change", this.render);
+      // this.options.user.on("change", this.render);
       // this.listenTo('sync', this.render, this);
 
       $(".wrapper").prepend(this.$el);
@@ -24,6 +26,31 @@
       this.$el.html(this.template);
 
     },
+
+    logOut: function(e){
+
+      // Nav Login Switch
+      e.preventDefault();
+
+      Parse.User.logOut();
+
+      App.router.navigate('login', {trigger: true});
+
+      // Change Nav Text
+      App.updateUser = function(){
+
+        if(App.user !== null){
+          $('#navLogin').text('Logout');
+        }
+        else {
+          $('#navLogin').text('Login');
+        }
+
+      };
+
+      App.updateUser();
+
+    }
 
   });
 
