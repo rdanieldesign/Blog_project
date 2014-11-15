@@ -31,6 +31,8 @@
     // Change Nav Text
     updateUser: function(){
 
+      App.user = Parse.User.current();
+
       if(App.user !== null){
         $('#navLogin').text('Logout');
       }
@@ -48,11 +50,13 @@
 
       Parse.User.logOut();
 
+      this.updateUser();
+
       this.initialize();
 
       App.router.navigate('login', {trigger: true});
 
-      this.updateUser();
+      // this.updateUser();
 
     }
 

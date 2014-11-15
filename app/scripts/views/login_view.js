@@ -10,7 +10,6 @@
     template: _.template($('#logInForm').html()),
 
     initialize: function () {
-        console.log('hey');
       this.render();
       $(".container").html(this.$el);
     },
