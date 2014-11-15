@@ -121,7 +121,7 @@ button, input {
   }
 
   h3 {
-    color: $green;
+    color: $orange;
   }
 }
 
@@ -153,4 +153,22 @@ button, input {
 #addComment {
   text-color: $green;
   margin-top: 25px;
+}
+.editPost {
+  padding-left: 10px;
+}
+.commentHeader {
+  padding-top: 50px;
+  padding-bottom: 15px;
+  font-family: $skinnyFont;
+  font-size: 3em;
+}
+.commentList {
+  font-size: 1.5em;
+  line-height: 4em;
+  border-bottom: 2px dotted $orange;
+}
+#commentText {
+  width: 45%;
+  font-size: 1.3em;
 }
