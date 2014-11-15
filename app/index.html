@@ -73,7 +73,7 @@
         <li class="" id="<%= objectId %>">
           <a href="/#single/<%= objectId %>"><h3><%= title %></h3></a>
           <a href="/#author/<%= user.objectId %>"><%= author %></a>
-          <a href="/#author/<%= user.objectId %>">posted on <%= updatedAt %></a>
+          <a href="/#author/<%= user.objectId %>">posted on <%= moment(updatedAt).format('MMMM Do YYYY, h:mm a') %></a>
           <a href="/#single/<%= objectId %>">Read Post</a>
         </li>
       <% }} else { %>
@@ -81,7 +81,7 @@
       <li class="" id="<%= objectId %>">
         <a href="/#single/<%= objectId %>"><h3><%= title %></h3></a>
         <a href="/#author/<%= user.objectId %>"><%= author %></a>
-        <a href="/#author/<%= user.objectId %>">posted on <%= updatedAt %></a>
+        <a href="/#author/<%= user.objectId %>">posted on <%= moment(updatedAt).format('MMMM Do YYYY, h:mm a') %></a>
       </li>
       <% }} %>
     </script>
