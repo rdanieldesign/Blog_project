@@ -11,14 +11,15 @@
     template: _.template($('#nav').html()),
 
     initialize: function (options) {
+
+      this.options = options;
+
       this.render();
 
-      console.log(this.options.user);
-
-      // this.options.user.on("change", this.render);
-      // this.listenTo('sync', this.render, this);
-
       $(".wrapper").prepend(this.$el);
+
+      this.updateUser();
+
     },
 
     render: function () {
@@ -27,28 +28,31 @@
 
     },
 
+    // Change Nav Text
+    updateUser: function(){
+
+      if(App.user !== null){
+        $('#navLogin').text('Logout');
+      }
+      else {
+        $('#navLogin').text('Login');
+      }
+
+    },
+
     logOut: function(e){
 
-      // Nav Login Switch
-      e.preventDefault();
+      var current = this.options;
+
+      $('#navLogin').text('Login');
 
       Parse.User.logOut();
 
+      this.initialize();
+
       App.router.navigate('login', {trigger: true});
 
-      // Change Nav Text
-      App.updateUser = function(){
-
-        if(App.user !== null){
-          $('#navLogin').text('Logout');
-        }
-        else {
-          $('#navLogin').text('Login');
-        }
-
-      };
-
-      App.updateUser();
+      this.updateUser();
 
     }
 
