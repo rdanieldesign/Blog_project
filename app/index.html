@@ -61,15 +61,22 @@
 
     <script type="text/template" id="postsList">
       <% if(App.user !== null){ %>
-        <% if(App.user.id === user.objectId || published === true){ %>
+        <% if(App.user.id === user.objectId){ %>
           <li class="" id="<%= objectId %>">
             <a href="/#single/<%= objectId %>"><h3><%= title %></h3></a>
             <a href="/#author/<%= user.objectId %>"><%= author %></a>
-            <a href="/#author/<%= user.objectId %>">posted on <%= updatedAt %></a>
+            <a href="/#author/<%= user.objectId %>">posted on <%= moment(updatedAt).format('MMMM Do YYYY, h:mm a') %></a>
             <a href="/#single/<%= objectId %>">Read Post</a>
             <a href="/#edit/<%= objectId %>">Edit Post</a>
           </li>
-        <% }} else { %>
+        <% } else if(published === true){ %>
+        <li class="" id="<%= objectId %>">
+          <a href="/#single/<%= objectId %>"><h3><%= title %></h3></a>
+          <a href="/#author/<%= user.objectId %>"><%= author %></a>
+          <a href="/#author/<%= user.objectId %>">posted on <%= updatedAt %></a>
+          <a href="/#single/<%= objectId %>">Read Post</a>
+        </li>
+      <% }} else { %>
       <% if(published === true){ %>
       <li class="" id="<%= objectId %>">
         <a href="/#single/<%= objectId %>"><h3><%= title %></h3></a>
@@ -136,6 +143,7 @@
     <!-- bower:js -->
     <script src="../bower_components/jquery/dist/jquery.js"></script>
     <script src="../bower_components/underscore/underscore.js"></script>
+    <script src="../bower_components/moment/moment.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
