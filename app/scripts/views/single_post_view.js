@@ -14,6 +14,8 @@
 
       this.render();
 
+      // this.options.comments.collection.on('sync', this.render, this);
+
       $(".container").html(this.$el);
 
     },
@@ -64,10 +66,10 @@
 
       comment.save(null, {
         success: function(){
-          console.log('comment');
-          $('#addComment')[0].reset();
-          console.log(current);
-          self.initialize(current);
+          App.posts.add(comment);
+          App.comments.fetch().done(function(){
+            new App.Views.SinglePost(current);
+          });
         }
       });
 
