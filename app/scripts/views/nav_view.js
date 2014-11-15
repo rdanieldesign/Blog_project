@@ -18,7 +18,7 @@
       // this.options.user.on("change", this.render);
       // this.listenTo('sync', this.render, this);
 
-      $(".wrapper").prepend(this.$el);
+      $("#nav_container").html(this.$el);
     },
 
     render: function () {
