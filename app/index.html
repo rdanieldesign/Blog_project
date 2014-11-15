@@ -65,15 +65,13 @@
         <a href="/#single/<%= objectId %>"><h3><%= title %></h3></a>
         <a href="/#author/<%= user.objectId %>"><%= author %></a>
         <a href="/#author/<%= user.objectId %>">posted on <%= updatedAt %></a>
-        <a href="/#single/<%= objectId %>">Read Post</a>
-        <a href="/#edit/<%= objectId %>">Edit Post</a>
+        <a class="editPost" href="/#edit/<%= objectId %>">Edit Post</a>
       </li>
       <% } else { %>
       <li class="" id="<%= objectId %>">
         <a href="/#single/<%= objectId %>"><h3><%= title %></h3></a>
         <a href="/#author/<%= user.objectId %>"><%= author %></a>
         <a href="/#author/<%= user.objectId %>">posted on <%= updatedAt %></a>
-        <a href="/#single/<%= objectId %>">Read Post</a>
       </li>
       <% }} else { %>
       <% if(published === true){ %>
@@ -81,19 +79,18 @@
         <a href="/#single/<%= objectId %>"><h3><%= title %></h3></a>
         <a href="/#author/<%= user.objectId %>"><%= author %></a>
         <a href="/#author/<%= user.objectId %>">posted on <%= updatedAt %></a>
-        <a href="/#single/<%= objectId %>">Read Post</a>
       </li>
       <% }} %>
     </script>
 
     <script type="text/template" id="singlePost">
       <h2 id="singleTitle"><%= title %></h2>
-      <a id="postAuthor" href="/#author/<%= user.objectId %>">by <%= author %></a>
+      <a id="postAuthor" href="/#author/<%= user.objectId %>"> by <%= author %></a>
       <p id="singleCopy"><%= copy %></p>
       <a href="/#category/<%= category %>"><%= category %></a>
       <% if(App.user != null){ %>
       <form id="addComment">
-          <textarea id="commentText" placeholder="Add Your Comments"></textarea>
+          <textarea id="commentText" placeholder="Add Your Comments Here"></textarea>
           <button>Add Comment</button>
       </form>
       <% } %>
@@ -133,8 +130,8 @@
     </script>
 
     <script type="text/template" id="commentTemp">
-      <li><%= commentText %>
-      by <a href="/#author/<%= user.objectId %>"><%= author %></a></li>
+      <li class="commentList"><%= commentText %>
+        by <a href="/#author/<%= user.objectId %>"><%= author %></a></li>
     </script>
 
 
