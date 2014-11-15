@@ -25,18 +25,23 @@
   <body>
 
     <div class="wrapper">
-      <nav>
+      <div id="nav_container"></div>
+      <div class="container"></div>
+    </div>
+    <div class="footer"></div>
+
+    <script type="text/template" id="nav">
         <a href="#/"><span>Word Bucket</span></a>
-          <div class="navBar">
+        <div class="navBar">
+          <% if(App.user == null){ %>
+            <button id="navLogin"></button>
+          <% } else { %>
             <a id="navCreate" href="/#create">Create</a>
             <a href="/#me">Me</a>
-            <button id="navLogin">Login</button>
-          </div>
-      </nav>
-        <div class="container"></div>
-    </div>
-
-    <div class="footer"></div>
+            <button id="navLogin"></button>
+          <% } %>
+        </div>
+    </script>
 
     <script type="text/template" id="logInForm">
       <form id="logIn">
@@ -56,19 +61,42 @@
 
     <script type="text/template" id="postsList">
       <% if(App.user !== null){ %>
-      <% if(App.user.id === user.objectId){ %>
-      <li class="" id="<%= objectId %>">
-        <h3><%= title %></h3>
-        <a href="/#single/<%= objectId %>">Read Post</a>
-        <a href="/#edit/<%= objectId %>">Edit Post</a>
-      </li>
+        <% if(App.user.id === user.objectId){ %>
+          <li class="" id="<%= objectId %>">
+            <a href="/#single/<%= objectId %>"><h3><%= title %></h3></a>
+            <a href="/#author/<%= user.objectId %>"><%= author %></a>
+            <a href="/#author/<%= user.objectId %>">posted on <%= moment(updatedAt).format('MMMM Do YYYY, h:mm a') %></a>
+            <a href="/#single/<%= objectId %>">Read Post</a>
+            <a href="/#edit/<%= objectId %>">Edit Post</a>
+          </li>
+        <% } else if(published === true){ %>
+        <li class="" id="<%= objectId %>">
+          <a href="/#single/<%= objectId %>"><h3><%= title %></h3></a>
+          <a href="/#author/<%= user.objectId %>"><%= author %></a>
+          <a href="/#author/<%= user.objectId %>">posted on <%= moment(updatedAt).format('MMMM Do YYYY, h:mm a') %></a>
+          <a href="/#single/<%= objectId %>">Read Post</a>
+        </li>
       <% }} else { %>
       <% if(published === true){ %>
       <li class="" id="<%= objectId %>">
-        <h3><%= title %></h3>
-        <a href="/#single/<%= objectId %>">Read Post</a>
+        <a href="/#single/<%= objectId %>"><h3><%= title %></h3></a>
+        <a href="/#author/<%= user.objectId %>"><%= author %></a>
+        <a href="/#author/<%= user.objectId %>">posted on <%= moment(updatedAt).format('MMMM Do YYYY, h:mm a') %></a>
       </li>
       <% }} %>
+    </script>
+
+    <script type="text/template" id="singlePost">
+      <h2 id="singleTitle"><%= title %></h2>
+      <a id="postAuthor" href="/#author/<%= user.objectId %>"> by <%= author %></a>
+      <p id="singleCopy"><%= copy %></p>
+      <a href="/#category/<%= category %>"><%= category %></a>
+      <% if(App.user != null){ %>
+      <form id="addComment">
+          <textarea id="commentText" placeholder="Add Your Comments Here"></textarea>
+          <button>Add Comment</button>
+      </form>
+      <% } %>
     </script>
 
     <script type="text/template" id="createPost">
@@ -104,23 +132,9 @@
       <button id="draft">Save as Draft</button>
     </script>
 
-    <script type="text/template" id="singlePost">
-      <h2 id="singleTitle"><%= title %></h2>
-      <a href="/#author/<%= user.objectId %>"><%= author %></a>
-      <p id="singleCopy"><%= copy %></p>
-      <a href="/#category/<%= category %>"><%= category %></a>
-      <% if(App.user != null){ %>
-      <form id="addComment">
-          <textarea id="commentText" placeholder="Add Your Comments"></textarea>
-          <button>Add Comment</button>
-      </form>
-      <% } %>
-    </script>
-
-
     <script type="text/template" id="commentTemp">
-      <li><%= commentText %>
-      by <a href="/#author/<%= user.objectId %>"><%= author %></a></li>
+      <li class="commentList"><%= commentText %>
+        by <a href="/#author/<%= user.objectId %>"><%= author %></a></li>
     </script>
 
 
@@ -128,6 +142,7 @@
     <!-- bower:js -->
     <script src="../bower_components/jquery/dist/jquery.js"></script>
     <script src="../bower_components/underscore/underscore.js"></script>
+    <script src="../bower_components/moment/moment.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -145,7 +160,9 @@
         <script src="scripts/models/post_model.js"></script>
         <script src="scripts/models/comments_model.js"></script>
         <script src="scripts/collections/posts_collection.js"></script>
+        <script src="scripts/collections/comments_collection.js"></script>
         <script src="scripts/routes/app_router.js"></script>
+        <script src="scripts/views/nav_view.js"></script>
         <script src="scripts/views/login_view.js"></script>
         <script src="scripts/views/public_posts_view.js"></script>
         <script src="scripts/views/create_post_view.js"></script>

@@ -33,7 +33,7 @@
       comments_query.equalTo('parent', this.options.post);
       comments_query.descending("createdAt");
 
-      this.$el.append('<h3>Comments</h3><ul class="comments"></ul>');
+      this.$el.append('<h3 class="commentHeader">Comments</h3><ul class="comments"></ul>');
 
       comments_query.find({
         success: function (results) {
@@ -64,9 +64,10 @@
 
       comment.save(null, {
         success: function(){
-          console.log('comment');
-          $('#addComment')[0].reset();
-          self.initialize(current);
+          App.posts.add(comment);
+          App.comments.fetch().done(function(){
+            new App.Views.SinglePost(current);
+          });
         }
       });
 
