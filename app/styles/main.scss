@@ -137,4 +137,16 @@ button, input {
 // Single Post
 #singleTitle {
   text-align: center;
+  color: RGBA(194, 93, 5, 1);
+}
+#singleCopy {
+  text-align: center;
+  //@include span-columns(10);
+  //@include shift(2);
+}
+#postAuthor {
+  font-size: 1.5em;
+}
+#addComment {
+  text-color: $green;
 }
