@@ -4,6 +4,8 @@ Parse.initialize("HsaC3RscbvbKWk7xWi6PdBbYJg3462oeRRYbIPkh", "li6QV1nKGUuXRpYR4Y
 
   App.posts = new App.Collections.Posts();
 
+  new App.Views.Nav();
+
   App.posts.fetch().done(function () {
     App.router = new App.Routers.AppRouter();
       Parse.history.start();

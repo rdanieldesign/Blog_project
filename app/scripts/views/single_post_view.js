@@ -31,6 +31,7 @@
       var commentTemplate = _.template($('#commentTemp').html());
       var comments_query = new Parse.Query(App.Models.Comment);
       comments_query.equalTo('parent', this.options.post);
+      comments_query.descending("createdAt");
 
       this.$el.append('<h3>Comments</h3><ul class="comments"></ul>');
 
@@ -49,6 +50,9 @@
     addComment: function (e) {
       e.preventDefault();
 
+      var self = this;
+      var current = this.options;
+
       var comment = new App.Models.Comment({
 
         commentText: $('#commentText').val(),
@@ -60,8 +64,9 @@
 
       comment.save(null, {
         success: function(){
-          console.log($('#commentText'));
-          $('#commentText').val("");
+          console.log('comment');
+          $('#addComment')[0].reset();
+          self.initialize(current);
         }
       });
 

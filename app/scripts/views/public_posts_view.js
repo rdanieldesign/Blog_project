@@ -21,6 +21,7 @@
 
       var myPost_query = new Parse.Query(App.Models.Post);
       myPost_query.equalTo('published', true);
+      myPost_query.descending("updatedAt");
       myPost_query.find({
         success: function(posts){
         _.each(posts, function(p) {
