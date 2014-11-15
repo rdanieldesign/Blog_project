@@ -66,6 +66,7 @@
         success: function(){
           console.log('comment');
           $('#addComment')[0].reset();
+          console.log(current);
           self.initialize(current);
         }
       });
