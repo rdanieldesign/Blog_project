@@ -4,11 +4,13 @@
 
 // Variables
 $green: RGBA(65, 112, 102, 1);
-
+$orange: RGBA(194, 93, 5, 1);
+$boldFont: 'Oxygen', sans-serif;
+$skinnyFont: 'Wire One', sans-serif;
 // Custom Styles
 body {
   background: RGBA(234, 234, 234, 1);
-  font-family: 'Oxygen', sans-serif;
+  font-family: $boldFont;
   font-size: 62.5%;
 }
 
@@ -23,6 +25,7 @@ h2 {
 
 h3 {
   font-size: 3em;
+  color: $orange;
 }
 
 p {
@@ -47,7 +50,7 @@ a, ul, li {
     line-height: 1;
     letter-spacing: -1px;
     padding-top: 20px;
-    font-family: 'Wire One', sans-serif;
+    font-family: $skinnyFont;
   }
   a {
     text-decoration: none;
@@ -65,7 +68,6 @@ nav {
   max-width: 1000px;
   padding: 40px 0;
   font-size: 25px;
-  //background-color: white;
 }
 
 .navBar {
@@ -137,7 +139,7 @@ button, input {
 // Single Post
 #singleTitle {
   text-align: center;
-  color: RGBA(194, 93, 5, 1);
+  color: $orange;
 }
 #singleCopy {
   text-align: center;
@@ -145,8 +147,10 @@ button, input {
   //@include shift(2);
 }
 #postAuthor {
-  font-size: 1.5em;
+  font-size: 2.5em;
+  font-family: $skinnyFont;
 }
 #addComment {
   text-color: $green;
+  margin-top: 25px;
 }
