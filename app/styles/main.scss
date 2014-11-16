@@ -27,11 +27,13 @@ h2 {
   line-height: 1.2em;
   display: inline-block;
   font-family: $skinnyFont;
+  color: $orange;
 }
 
 h3 {
   font-size: 3em;
-  color: $orange;
+  margin-bottom: 20px;
+  color: $green;
 }
 
 p {
@@ -58,6 +60,7 @@ a {
 button {
   border: none;
   padding: 10px 20px;
+  font-size: 1.6em;
   background-color: $green;
   color: white;
   border-radius: 2px;
@@ -164,9 +167,16 @@ nav {
     border-bottom: 2px dotted $orange;
   }
 
+  a {
+    font-size: 110%;
+  }
+
+  .textLink {
+    margin-left: 20px;
+  }
+
   h2 {
-    color: $orange;
-    margin-bottom: 20px;
+    margin-bottom: 14px;
   }
 
   .postDetails {
@@ -174,11 +184,6 @@ nav {
     font-size: 1.2em;
     line-height: 1em;
   }
-}
-
-.mainPage {
-  color: black;
-  font-size: 25px;
 }
 
 // Single Post

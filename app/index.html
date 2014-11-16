@@ -67,8 +67,8 @@
             <span class="postDetails">
               <a href="/#author/<%= user.objectId %>"><%= author %></a>
               posted on <%= moment(updatedAt).format('MMMM Do YYYY, h:mm a') %>
-              <a href="/#single/<%= objectId %>">Read Post</a>
-              <a href="/#edit/<%= objectId %>">Edit Post</a>
+              <a class="textLink" href="/#single/<%= objectId %>">Read Post</a>
+              <a class="textLink" href="/#edit/<%= objectId %>">Edit Post</a>
             </span>
           </li>
         <% } else if(published === true){ %>
@@ -77,7 +77,7 @@
           <span class="postDetails">
             <a href="/#author/<%= user.objectId %>"><%= author %></a>
             posted on <%= moment(updatedAt).format('MMMM Do YYYY, h:mm a') %>
-            <a href="/#single/<%= objectId %>">Read Post</a>
+            <a class="textLink" href="/#single/<%= objectId %>">Read Post</a>
           </span>
         </li>
       <% }} else { %>
@@ -87,6 +87,7 @@
         <span class="postDetails">
           <a href="/#author/<%= user.objectId %>"><%= author %></a>
           posted on <%= moment(updatedAt).format('MMMM Do YYYY, h:mm a') %>
+          <a class="textLink" href="/#single/<%= objectId %>">Read Post</a>
         </span>
       </li>
       <% }} %>
