@@ -298,22 +298,28 @@ nav {
   border: 1px solid $green;
 }
 #copy {
-  @include span-columns(8);
+  @include span-columns(12);
   display: block;
   margin-bottom: 35px;
   border: 1px solid $green;
+  font-size: 1.5em;
+  padding-left: 10px;
 }
 .createPostH3 {
   @include span-columns(12);
 }
 #categories {
+  @include span-columns(6);
   font-size: 2em;
   width: 135px;
 
 }
 #publish, #draft {
-  display: block;
+  display: inline;
   margin-top: 10px;
   margin-left: 7px;
   float: right;
+}
+.createButtons {
+
 }
