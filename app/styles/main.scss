@@ -78,6 +78,12 @@ nav {
     float: right;
   }
 }
+#navLogin {
+  background-color: $green;
+  color: white;
+  width: 100px;
+  font-size: 1em;
+}
 
 button, input {
   color: RGBA(99, 98, 93, 1);
@@ -174,6 +180,9 @@ button, input {
 }
 
 .commentList {
+  /* font-size: 1.5em;
+  padding-top: 15px;
+  padding-bottom: 15px; */
   border-bottom: 2px dotted $orange;
   padding: 20px 0 48px 0;
 
@@ -187,4 +196,11 @@ button, input {
 #commentText {
   width: 45%;
   font-size: 12px;
+}
+#addCommentButton {
+  display: inherit;
+  font-size: 1.3em;
+  width: 100px;
+  background-color: $green;
+  color: white;
 }
