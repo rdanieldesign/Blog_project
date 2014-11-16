@@ -31,7 +31,7 @@
     <div class="footer"></div>
 
     <script type="text/template" id="nav">
-        <a href="#/"><span>Word Bucket</span></a>
+        <a href="#/"><h1>Word Bucket</h1></a>
         <div class="navBar">
           <% if(App.user == null){ %>
             <button id="navLogin"></button>
@@ -90,7 +90,7 @@
       <h2 id="singleTitle"><%= title %></h2>
       <a id="postAuthor" href="/#author/<%= user.objectId %>"> by <%= author %></a>
       <p id="singleCopy"><%= copy %></p>
-      <a href="/#category/<%= category %>"><%= category %></a>
+      <span>Category: <a href="/#category/<%= category %>"><%= category %></a></span>
       <% if(App.user != null){ %>
       <form id="addComment">
           <textarea id="commentText" placeholder="Add Your Comments Here"></textarea>
@@ -133,8 +133,10 @@
     </script>
 
     <script type="text/template" id="commentTemp">
-      <li class="commentList"><%= commentText %>
-        by <a href="/#author/<%= user.objectId %>"><%= author %></a></li>
+      <li class="commentList">
+        <p><%= commentText %></p>
+        <span class="commentAuthor">comment by <a href="/#author/<%= user.objectId %>"><%= author %></a></span>
+      </li>
     </script>
 
 

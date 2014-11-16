@@ -20,7 +20,10 @@ h1, h2, h3, h4, h5 {
 }
 
 h2 {
-  font-size: 4em;
+  font-size: 5em;
+  line-height: 1.2em;
+  display: inline;
+  font-family: $skinnyFont;
 }
 
 h3 {
@@ -41,17 +44,10 @@ a, ul, li {
 
 .wrapper {
   width: 100%;
-  padding: 0 20px;
+  padding: 0 40px;
   font-weight: 200;
   line-height: 30px;
 
-  span {
-    font-size: 75px;
-    line-height: 1;
-    letter-spacing: -1px;
-    padding-top: 20px;
-    font-family: $skinnyFont;
-  }
   a {
     text-decoration: none;
     color: $green;
@@ -68,10 +64,19 @@ nav {
   max-width: 1000px;
   padding: 40px 0;
   font-size: 25px;
-}
 
-.navBar {
-  float: right;
+  h1 {
+    @include span-columns(4 of 12);
+    font-size: 75px;
+    line-height: 1;
+    letter-spacing: -1px;
+    padding-top: 20px;
+    font-family: $skinnyFont;
+  }
+
+  .navBar {
+    float: right;
+  }
 }
 
 button, input {
@@ -116,7 +121,7 @@ button, input {
 
   li {
     margin-bottom: 40px;
-    padding: 20px 0;
+    padding: 20px 0 40px 0;
     border-bottom: 2px solid white;
   }
 
@@ -141,34 +146,45 @@ button, input {
   text-align: center;
   color: $orange;
 }
-#singleCopy {
-  text-align: center;
-  //@include span-columns(10);
-  //@include shift(2);
-}
+
 #postAuthor {
-  font-size: 2.5em;
-  font-family: $skinnyFont;
+  font-size: 2em;
+  font-family: $boldFont;
+  display: inline;
+  margin-left: 12px;
+  margin-bottom: 40px;
 }
+
 #addComment {
   text-color: $green;
   margin-top: 25px;
 }
+
 .editPost {
   padding-left: 10px;
 }
+
+// Comments
+
 .commentHeader {
   padding-top: 50px;
   padding-bottom: 15px;
   font-family: $skinnyFont;
   font-size: 3em;
 }
+
 .commentList {
-  font-size: 1.5em;
-  line-height: 4em;
   border-bottom: 2px dotted $orange;
+  padding: 20px 0 48px 0;
+
+  .commentAuthor {
+    display: block;
+    font-size: 1.2em;
+    line-height: 1em;
+  }
 }
+
 #commentText {
   width: 45%;
-  font-size: 1.3em;
+  font-size: 12px;
 }
