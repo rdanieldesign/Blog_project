@@ -2,7 +2,7 @@
   App.Views.MyPosts = Parse.View.extend({
 
     tagName: 'ul',
-    className: 'myPosts',
+    className: 'allPosts',
 
     events: {},
 

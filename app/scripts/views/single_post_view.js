@@ -14,8 +14,6 @@
 
       this.render();
 
-      // this.options.comments.collection.on('sync', this.render, this);
-
       $(".container").html(this.$el);
 
     },
