@@ -53,23 +53,29 @@
       var self = this;
       var current = this.options;
 
-      var comment = new App.Models.Comment({
+      if($('#commentText').val() === ""){
+        alert("Don't leave a blank comment");
+      }
+      else{
 
-        commentText: $('#commentText').val(),
-        parent: this.options.post,
-        user: App.user,
-        author: App.user.attributes.name
+        var comment = new App.Models.Comment({
 
-      });
+          commentText: $('#commentText').val(),
+          parent: this.options.post,
+          user: App.user,
+          author: App.user.attributes.name
 
-      comment.save(null, {
-        success: function(){
-          App.posts.add(comment);
-          App.comments.fetch().done(function(){
-            new App.Views.SinglePost(current);
-          });
-        }
-      });
+        });
+
+        comment.save(null, {
+          success: function(){
+            App.posts.add(comment);
+            App.comments.fetch().done(function(){
+              new App.Views.SinglePost(current);
+            });
+          }
+        });
+      }
 
     }
 

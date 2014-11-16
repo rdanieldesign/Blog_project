@@ -30,51 +30,79 @@
     createPost: function(e){
       e.preventDefault();
 
-      var p = new App.Models.Post({
-        title: $('#title').val(),
-        copy: $('#copy').val(),
-        category: $('#categories option:selected').val(),
-        published: true,
-        user: App.user,
-        author: App.user.attributes.name
-      });
+      if($('#title').val() === ""){
+        alert('Please create a title for your post.');
+      }
+      else if($('#copy').val() === ""){
+        alert("Don't create a blank post.");
+      }
+      else if($('#categories option:selected').val() === ""){
+        alert("Please select a category");
+      }
+      else{
 
-      // Set Access Control List
-      var postACL = new Parse.ACL(App.user);
-      postACL.setPublicReadAccess(true);
-      p.setACL(postACL);
+        var p = new App.Models.Post({
+          title: $('#title').val(),
+          copy: $('#copy').val(),
+          category: $('#categories option:selected').val(),
+          published: true,
+          user: App.user,
+          author: App.user.attributes.name
+        });
 
-      p.save(null, {
-        success: function () {
-          App.posts.add(p);
-          App.router.navigate('', { trigger: true });
-        }
-      });
+        // Set Access Control List
+        var postACL = new Parse.ACL(App.user);
+        postACL.setPublicReadAccess(true);
+        p.setACL(postACL);
+
+        p.save(null, {
+          success: function () {
+            App.posts.add(p);
+            App.router.navigate('', { trigger: true });
+          }
+        });
+
+      }
+
     },
 
     draftPost: function(e){
       e.preventDefault();
 
-      var p = new App.Models.Post({
-        title: $('#title').val(),
-        copy: $('#copy').val(),
-        category: $('#categories option:selected').val(),
-        published: false,
-        user: App.user,
-        author: App.user.attributes.name
-      });
+      if($('#title').val() === ""){
+        alert('Please create a title for your post.');
+      }
+      else if($('#copy').val() === ""){
+        alert("Don't create a blank post.");
+      }
+      else if($('#categories option:selected').val() === ""){
+        alert("Please select a category");
+      }
+      else{
 
-      // Set Access Control List
-      var postACL = new Parse.ACL(App.user);
-      postACL.setPublicReadAccess(true);
-      p.setACL(postACL);
+        var p = new App.Models.Post({
+          title: $('#title').val(),
+          copy: $('#copy').val(),
+          category: $('#categories option:selected').val(),
+          published: false,
+          user: App.user,
+          author: App.user.attributes.name
+        });
 
-      p.save(null, {
-        success: function () {
-          App.posts.add(p);
-          App.router.navigate('', { trigger: true });
-        }
-      });
+        // Set Access Control List
+        var postACL = new Parse.ACL(App.user);
+        postACL.setPublicReadAccess(true);
+        p.setACL(postACL);
+
+        p.save(null, {
+          success: function () {
+            App.posts.add(p);
+            App.router.navigate('', { trigger: true });
+          }
+        });
+        
+      }
+
     }
 
 
