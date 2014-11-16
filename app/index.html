@@ -62,7 +62,7 @@
     <script type="text/template" id="postsList">
       <% if(App.user !== null){ %>
         <% if(App.user.id === user.objectId){ %>
-          <li class="" id="<%= objectId %>">
+          <li <% if(published === false){ %>class="draft"<% } %> id="<%= objectId %>">
             <a href="/#single/<%= objectId %>"><h2><%= title %></h2></a>
             <span class="postDetails">
               <a href="/#author/<%= user.objectId %>"><%= author %></a>
