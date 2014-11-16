@@ -178,13 +178,13 @@ nav {
 
   li.draft h2{
 
-      &::after {
-         content:'(draft)' ;
-         font-size: 40%;
-         margin-left: 20px;
-         font-family: $boldFont;
-         color: $green;
-      }
+    &::after {
+       content:'(draft)' ;
+       font-size: 40%;
+       margin-left: 20px;
+       font-family: $boldFont;
+       color: $green;
+    }
   }
 
   a {

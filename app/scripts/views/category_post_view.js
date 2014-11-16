@@ -1,8 +1,8 @@
 (function () {
   App.Views.Category = Parse.View.extend({
 
-    // tagName: 'ul',
-    // className: 'myPosts',
+    tagName: 'ul',
+    className: 'allPosts',
 
     events: {},
 
