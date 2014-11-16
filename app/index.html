@@ -108,11 +108,11 @@
     </script>
 
     <script type="text/template" id="createPost">
-      <h3 class="createPostH3">Title</h3>
+      <h3 class="postH3">Title</h3>
       <input type="text" id="title">
-      <h3 class="createPostH3">Copy</h3>
+      <h3 class="postH3">Copy</h3>
       <textarea id="copy" cols="30" rows="10"></textarea>
-      <h3 class="createPostH3">Category</h3>
+      <h3 class="postH3">Category</h3>
       <select id="categories">
         <option value="">Select a category</option>
         <option value="music">Music</option>
@@ -127,8 +127,11 @@
     </script>
 
     <script type="text/template" id="editPost">
+      <h3 class="postH3">Title</h3>
       <input type="text" id="title" value="<%= title %>">
+      <h3 class="postH3">Copy</h3>
       <textarea id="copy" cols="30" rows="10"><%= copy %></textarea>
+      <h3 class="postH3">Category</h3>
       <select id="categories">
         <option value="">Select a category</option>
         <option value="music">Music</option>
