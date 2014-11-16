@@ -32,7 +32,18 @@
     editPost: function(e){
       e.preventDefault();
 
-    this.options.post.set({
+      if($('#title').val() === ""){
+        alert('Please create a title for your post.');
+      }
+      else if($('#copy').val() === ""){
+        alert("Don't create a blank post.");
+      }
+      else if($('#categories option:selected').val() === ""){
+        alert("Please select a category");
+      }
+      else{
+
+        this.options.post.set({
           title: $('#title').val(),
           copy: $('#copy').val(),
           category: $('#categories option:selected').val(),
@@ -50,7 +61,8 @@
             App.router.navigate('', { trigger: true });
           }
         });
-      },
+      }
+    },
 
 
     draftPost: function(e){
