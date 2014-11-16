@@ -9,7 +9,7 @@ $grey: HSLA(174, 8%, 24%, 1);
 $boldFont: 'Oxygen', sans-serif;
 $skinnyFont: 'Wire One', sans-serif;
 
-// Custom Styles
+// Standard Styles
 body {
   background: RGBA(234, 234, 234, 1);
   font-family: $boldFont;
@@ -25,7 +25,7 @@ h1, h2, h3, h4, h5 {
 h2 {
   font-size: 5em;
   line-height: 1.2em;
-  display: inline;
+  display: inline-block;
   font-family: $skinnyFont;
 }
 
@@ -49,13 +49,22 @@ a {
   text-decoration: none;
   color: $green;
   font-weight: bold;
+
+  &:hover {
+    color: $orange;
+  }
 }
 
 button {
   border: none;
-  padding: 12px 20px;
+  padding: 10px 20px;
   background-color: $green;
   color: white;
+  border-radius: 2px;
+
+  &:hover {
+    background-color: $orange;
+  }
 }
 
 input {
@@ -63,6 +72,7 @@ input {
   background-color: white;
 }
 
+// Custom Styles
 .wrapper {
   width: 100%;
   padding: 0 40px;
@@ -78,7 +88,7 @@ input {
 nav {
   @include outer-container;
   max-width: 1000px;
-  padding: 40px 0;
+  padding: 40px 0 80px 0;
   font-size: 1.6em;
 
   h1 {
@@ -91,12 +101,12 @@ nav {
   }
 
   .navBar {
-    margin-top: 40px;
+    margin-top: 36px;
     float: right;
   }
 
   a {
-    margin-right: 20px;
+    margin-right: 24px;
   }
 }
 
@@ -150,11 +160,11 @@ nav {
 
   li {
     margin-bottom: 40px;
-    padding-bottom: 40px;
-    border-bottom: 2px solid white;
+    padding-bottom: 56px;
+    border-bottom: 2px dotted $orange;
   }
 
-  h3 {
+  h2 {
     color: $orange;
     margin-bottom: 20px;
   }
@@ -237,8 +247,8 @@ nav {
 #addCommentButton {
   @include span-columns(8);
   /* @include shift(2); */
-  display: inherit;
   font-size: 1.3em;
-  background-color: $green;
-  color: white;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+
 }
