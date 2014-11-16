@@ -98,6 +98,7 @@
       <a id="postAuthor" href="/#author/<%= user.objectId %>"> by <%= author %></a>
       <p id="singleCopy"><%= copy %></p>
       <span class="category">Category: <a href="/#category/<%= category %>"><%= category %></a></span>
+      <h3 class="commentHeader">Comments on "<%= title %>"</h3>
       <% if(App.user != null){ %>
       <form id="addComment">
           <textarea id="commentText" placeholder="Add Your Comments"></textarea>
@@ -141,8 +142,8 @@
 
     <script type="text/template" id="commentTemp">
       <li class="commentList">
+      <span class="commentAuthor"><a href="/#author/<%= user.objectId %>"><%= author %></a> commented:</span>
         <p><%= commentText %></p>
-        <span class="commentAuthor">comment by <a href="/#author/<%= user.objectId %>"><%= author %></a></span>
       </li>
     </script>
 

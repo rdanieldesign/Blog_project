@@ -46,6 +46,7 @@ h3 {
 
 p {
   font-size: 1.6em;
+  text-align: justify;
 }
 
 ul, li {
@@ -212,12 +213,16 @@ nav {
   color: $orange;
 }
 
+#singleCopy {
+  text-align: justify;
+}
+
 #postAuthor {
   font-size: 2em;
   font-family: $boldFont;
-  display: inline;
+  display: inline-block;
   margin-left: 12px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .editPost {
@@ -227,7 +232,8 @@ nav {
 .category {
   display: block;
   font-size: 1.2em;
-  line-height: 1em;
+  margin-top: 20px;
+  text-align: center;
 }
 
 // Comments
@@ -235,11 +241,15 @@ nav {
 #addComment {
   text-color: $green;
   margin-top: 40px;
+  padding-top: 40px;
+  border-top: 3px solid $green;
 }
 
 .commentHeader {
   @include span-columns(12);
-  padding-top: 50px;
+  /* text-align: center; */
+  margin-top: 80px;
+  padding-top: 40px;
   padding-bottom: 15px;
   font-family: $skinnyFont;
   font-size: 3em;
@@ -251,7 +261,7 @@ nav {
 
 .commentList {
   border-bottom: 2px dotted $orange;
-  padding: 20px 0 48px 0;
+  padding: 48px 0 32px 0;
 
   .commentAuthor {
     display: block;
@@ -261,7 +271,7 @@ nav {
 }
 
 #commentText {
-  @include span-columns(8);
+  @include span-columns(12);
   /* @include shift(2); */
   height: 140px;
   padding: 8px 12px;
@@ -269,9 +279,8 @@ nav {
 }
 
 #addCommentButton {
-  @include span-columns(8);
+  @include span-columns(12);
   /* @include shift(2); */
-  font-size: 1.3em;
   border-top-right-radius: 0;
   border-top-left-radius: 0;
 
