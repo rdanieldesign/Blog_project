@@ -64,24 +64,30 @@
         <% if(App.user.id === user.objectId){ %>
           <li class="" id="<%= objectId %>">
             <a href="/#single/<%= objectId %>"><h3><%= title %></h3></a>
-            <a href="/#author/<%= user.objectId %>"><%= author %></a>
-            <a href="/#author/<%= user.objectId %>">posted on <%= moment(updatedAt).format('MMMM Do YYYY, h:mm a') %></a>
-            <a href="/#single/<%= objectId %>">Read Post</a>
-            <a href="/#edit/<%= objectId %>">Edit Post</a>
+            <span class="postDetails">
+              <a href="/#author/<%= user.objectId %>"><%= author %></a>
+              posted on <%= moment(updatedAt).format('MMMM Do YYYY, h:mm a') %>
+              <a href="/#single/<%= objectId %>">Read Post</a>
+              <a href="/#edit/<%= objectId %>">Edit Post</a>
+            </span>
           </li>
         <% } else if(published === true){ %>
         <li class="" id="<%= objectId %>">
           <a href="/#single/<%= objectId %>"><h3><%= title %></h3></a>
-          <a href="/#author/<%= user.objectId %>"><%= author %></a>
-          <a href="/#author/<%= user.objectId %>">posted on <%= moment(updatedAt).format('MMMM Do YYYY, h:mm a') %></a>
-          <a href="/#single/<%= objectId %>">Read Post</a>
+          <span class="postDetails">
+            <a href="/#author/<%= user.objectId %>"><%= author %></a>
+            posted on <%= moment(updatedAt).format('MMMM Do YYYY, h:mm a') %>
+            <a href="/#single/<%= objectId %>">Read Post</a>
+          </span>
         </li>
       <% }} else { %>
       <% if(published === true){ %>
       <li class="" id="<%= objectId %>">
         <a href="/#single/<%= objectId %>"><h3><%= title %></h3></a>
-        <a href="/#author/<%= user.objectId %>"><%= author %></a>
-        <a href="/#author/<%= user.objectId %>">posted on <%= moment(updatedAt).format('MMMM Do YYYY, h:mm a') %></a>
+        <span class="postDetails">
+          <a href="/#author/<%= user.objectId %>"><%= author %></a>
+          posted on <%= moment(updatedAt).format('MMMM Do YYYY, h:mm a') %>
+        </span>
       </li>
       <% }} %>
     </script>
@@ -90,7 +96,7 @@
       <h2 id="singleTitle"><%= title %></h2>
       <a id="postAuthor" href="/#author/<%= user.objectId %>"> by <%= author %></a>
       <p id="singleCopy"><%= copy %></p>
-      <span>Category: <a href="/#category/<%= category %>"><%= category %></a></span>
+      <span class="category">Category: <a href="/#category/<%= category %>"><%= category %></a></span>
       <% if(App.user != null){ %>
       <form id="addComment">
           <textarea id="commentText" placeholder="Add Your Comments Here"></textarea>
