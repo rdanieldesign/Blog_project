@@ -5,7 +5,7 @@
 // Variables
 $green: RGBA(65, 112, 102, 1);
 $orange: RGBA(194, 93, 5, 1);
-$grey: HSLA(174, 8%, 24%, 1);
+$grey: HSLA(0, 0%, 47%, 1);
 $boldFont: 'Oxygen', sans-serif;
 $skinnyFont: 'Wire One', sans-serif;
 
@@ -14,12 +14,20 @@ body {
   background: RGBA(251, 251, 251, 1);
   font-family: $boldFont;
   font-size: 62.5%;
+  line-height: 30px;
+  font-weight: normal;
+  letter-spacing: 1px;
   color: $grey;
 }
 
 h1, h2, h3, h4, h5 {
   margin: 0;
   padding: 0;
+  font-weight: normal;
+}
+
+h1, h2 {
+  letter-spacing: 3px;
 }
 
 h2 {
@@ -38,6 +46,7 @@ h3 {
 
 p {
   font-size: 1.6em;
+  text-align: justify;
 }
 
 ul, li {
@@ -51,6 +60,7 @@ a {
   text-decoration: none;
   color: $green;
   font-weight: bold;
+  letter-spacing: 0;
 
   &:hover {
     color: $orange;
@@ -79,8 +89,6 @@ input {
 .wrapper {
   width: 100%;
   padding: 0 40px;
-  font-weight: 200;
-  line-height: 30px;
 }
 
 .container {
@@ -97,6 +105,7 @@ nav {
   h1 {
     @include span-columns(4 of 12);
     font-size: 75px;
+    font-weight: bold;
     line-height: 1;
     letter-spacing: -1px;
     padding-top: 20px;
@@ -167,6 +176,17 @@ nav {
     border-bottom: 2px dotted $orange;
   }
 
+  li.draft h2{
+
+      &::after {
+         content:'(draft)' ;
+         font-size: 40%;
+         margin-left: 20px;
+         font-family: $boldFont;
+         color: $green;
+      }
+  }
+
   a {
     font-size: 110%;
   }
@@ -176,7 +196,7 @@ nav {
   }
 
   h2 {
-    margin-bottom: 14px;
+    margin-bottom: 10px;
   }
 
   .postDetails {
@@ -193,12 +213,16 @@ nav {
   color: $orange;
 }
 
+#singleCopy {
+  text-align: justify;
+}
+
 #postAuthor {
   font-size: 2em;
   font-family: $boldFont;
-  display: inline;
+  display: inline-block;
   margin-left: 12px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .editPost {
@@ -208,7 +232,8 @@ nav {
 .category {
   display: block;
   font-size: 1.2em;
-  line-height: 1em;
+  margin-top: 20px;
+  text-align: center;
 }
 
 // Comments
@@ -216,11 +241,15 @@ nav {
 #addComment {
   text-color: $green;
   margin-top: 40px;
+  padding-top: 40px;
+  border-top: 3px solid $green;
 }
 
 .commentHeader {
   @include span-columns(12);
-  padding-top: 50px;
+  /* text-align: center; */
+  margin-top: 80px;
+  padding-top: 40px;
   padding-bottom: 15px;
   font-family: $skinnyFont;
   font-size: 3em;
@@ -232,7 +261,7 @@ nav {
 
 .commentList {
   border-bottom: 2px dotted $orange;
-  padding: 20px 0 48px 0;
+  padding: 48px 0 32px 0;
 
   .commentAuthor {
     display: block;
@@ -242,7 +271,7 @@ nav {
 }
 
 #commentText {
-  @include span-columns(8);
+  @include span-columns(12);
   /* @include shift(2); */
   height: 140px;
   padding: 8px 12px;
@@ -250,9 +279,8 @@ nav {
 }
 
 #addCommentButton {
-  @include span-columns(8);
+  @include span-columns(12);
   /* @include shift(2); */
-  font-size: 1.3em;
   border-top-right-radius: 0;
   border-top-left-radius: 0;
 }
