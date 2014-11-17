@@ -112,18 +112,22 @@
       <input type="text" id="title">
       <h3 class="postH3">Copy</h3>
       <textarea id="copy" cols="30" rows="10"></textarea>
-      <h3 class="postH3">Category</h3>
-      <select id="categories">
-        <option value="">Select a category</option>
-        <option value="music">Music</option>
-        <option value="fashion" >Fashion</option>
-        <option value="art">Art</option>
-        <option value="literature">Literature</option>
-        <option value="food">Food</option>
-        <option value="technology">Technology</option>
-      </select>
-      <button id="publish">Create Post</button>
-      <button id="draft">Save as Draft</button>
+      <div class="catSelect">
+        <h3 class="postH3">Category</h3>
+        <select id="categories">
+          <option value="">Select a category</option>
+          <option value="music">Music</option>
+          <option value="fashion" >Fashion</option>
+          <option value="art">Art</option>
+          <option value="literature">Literature</option>
+          <option value="food">Food</option>
+          <option value="technology">Technology</option>
+        </select>
+      </div>
+      <div class="catButtons">
+        <button id="publish">Create Post</button>
+        <button id="draft">Save as Draft</button>
+      </div>
     </script>
 
     <script type="text/template" id="editPost">
@@ -131,18 +135,22 @@
       <input type="text" id="title" value="<%= title %>">
       <h3 class="postH3">Copy</h3>
       <textarea id="copy" cols="30" rows="10"><%= copy %></textarea>
-      <h3 class="postH3">Category</h3>
-      <select id="categories">
-        <option value="">Select a category</option>
-        <option value="music">Music</option>
-        <option value="fashion" >Fashion</option>
-        <option value="art">Art</option>
-        <option value="literature">Literature</option>
-        <option value="food">Food</option>
-        <option value="technology">Technology</option>
-      </select>
-      <button id="publish">Create Post</button>
-      <button id="draft">Save as Draft</button>
+      <div class="catSelect">
+        <h3 class="postH3">Category</h3>
+        <select id="categories">
+          <option value="">Select a category</option>
+          <option value="music">Music</option>
+          <option value="fashion" >Fashion</option>
+          <option value="art">Art</option>
+          <option value="literature">Literature</option>
+          <option value="food">Food</option>
+          <option value="technology">Technology</option>
+        </select>
+      </div>
+      <div class="catButtons">
+        <button id="publish">Create Post</button>
+        <button id="draft">Save as Draft</button>
+      </div>
     </script>
 
     <script type="text/template" id="commentTemp">
