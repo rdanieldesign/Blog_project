@@ -1,0 +1,170 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <title>blog_project</title>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <link rel="stylesheet" href="styles/vendor.css">
+    <link href='http://fonts.googleapis.com/css?family=Wire+One' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Oxygen:300' rel='stylesheet' type='text/css'>
+     <link rel="stylesheet" href="styles/main.css">
+
+    <script src="scripts/vendor/modernizr.js"></script>
+  </head>
+  <body>
+
+    <div class="wrapper">
+      <div id="nav_container"></div>
+      <div class="container"></div>
+    </div>
+    <div class="footer"></div>
+
+    <script type="text/template" id="nav">
+        <a href="#/"><h1>Word Bucket</h1></a>
+        <div class="navBar">
+          <% if(App.user == null){ %>
+            <button id="navLogin"></button>
+          <% } else { %>
+            <a id="navCreate" href="/#create">Create</a>
+            <a href="/#me">Me</a>
+            <button id="navLogin"></button>
+          <% } %>
+        </div>
+    </script>
+
+    <script type="text/template" id="logInForm">
+      <form id="logIn">
+        <h3 class="mainPage">Log In</h3>
+        <input id="username" type="text" placeholder="Enter User Name" />
+        <input id="password" type="password" placeholder="Enter Password" />
+        <button>Log In</button>
+      </form>
+      <form id="signUp">
+      <h3 class="mainPage">Sign Up</h3>
+      <input id="fullname" type="text" placeholder="Full Name" />
+        <input id="newUsername" type="text" placeholder="New Username" />
+        <input id="newPassword" type="password" placeholder="New Password" />
+        <button>Sign Up</button>
+      </form>
+    </script>
+
+    <script type="text/template" id="postsList">
+      <% if(App.user !== null){ %>
+        <% if(App.user.id === user.objectId){ %>
+          <li <% if(published === false){ %>class="draft"<% } %> id="<%= objectId %>">
+            <a href="/#single/<%= objectId %>"><h2><%= title %></h2></a>
+            <span class="postDetails">
+              <a href="/#author/<%= user.objectId %>"><%= author %></a>
+              posted on <%= moment(updatedAt).format('MMMM Do YYYY, h:mm a') %>
+              <a class="textLink" href="/#single/<%= objectId %>">Read Post</a>
+              <a class="textLink" href="/#edit/<%= objectId %>">Edit Post</a>
+            </span>
+          </li>
+        <% } else if(published === true){ %>
+        <li class="" id="<%= objectId %>">
+          <a href="/#single/<%= objectId %>"><h2><%= title %></h2></a>
+          <span class="postDetails">
+            <a href="/#author/<%= user.objectId %>"><%= author %></a>
+            posted on <%= moment(updatedAt).format('MMMM Do YYYY, h:mm a') %>
+            <a class="textLink" href="/#single/<%= objectId %>">Read Post</a>
+          </span>
+        </li>
+      <% }} else { %>
+      <% if(published === true){ %>
+      <li class="" id="<%= objectId %>">
+        <a href="/#single/<%= objectId %>"><h2><%= title %></h2></a>
+        <span class="postDetails">
+          <a href="/#author/<%= user.objectId %>"><%= author %></a>
+          posted on <%= moment(updatedAt).format('MMMM Do YYYY, h:mm a') %>
+          <a class="textLink" href="/#single/<%= objectId %>">Read Post</a>
+        </span>
+      </li>
+      <% }} %>
+    </script>
+
+    <script type="text/template" id="singlePost">
+      <h2 id="singleTitle"><%= title %></h2>
+      <a id="postAuthor" href="/#author/<%= user.objectId %>"> by <%= author %></a>
+      <p id="singleCopy"><%= copy %></p>
+      <span class="category">Category: <a href="/#category/<%= category %>"><%= category %></a></span>
+      <h3 class="commentHeader">Comments on "<%= title %>"</h3>
+      <% if(App.user != null){ %>
+      <form id="addComment">
+          <textarea id="commentText" placeholder="Add Your Comments"></textarea>
+          <button id="addCommentButton">Add Comment</button>
+      </form>
+      <% } %>
+    </script>
+
+    <script type="text/template" id="createPost">
+      <h3 class="postH3">Title</h3>
+      <input type="text" id="title">
+      <h3 class="postH3">Copy</h3>
+      <textarea id="copy" cols="30" rows="10"></textarea>
+      <div class="catSelect">
+        <h3 class="postH3">Category</h3>
+        <select id="categories">
+          <option value="">Select a category</option>
+          <option value="music">Music</option>
+          <option value="fashion" >Fashion</option>
+          <option value="art">Art</option>
+          <option value="literature">Literature</option>
+          <option value="food">Food</option>
+          <option value="technology">Technology</option>
+        </select>
+      </div>
+      <div class="catButtons">
+        <button id="publish">Create Post</button>
+        <button id="draft">Save as Draft</button>
+      </div>
+    </script>
+
+    <script type="text/template" id="editPost">
+      <h3 class="postH3">Title</h3>
+      <input type="text" id="title" value="<%= title %>">
+      <h3 class="postH3">Copy</h3>
+      <textarea id="copy" cols="30" rows="10"><%= copy %></textarea>
+      <div class="catSelect">
+        <h3 class="postH3">Category</h3>
+        <select id="categories">
+          <option value="">Select a category</option>
+          <option value="music">Music</option>
+          <option value="fashion" >Fashion</option>
+          <option value="art">Art</option>
+          <option value="literature">Literature</option>
+          <option value="food">Food</option>
+          <option value="technology">Technology</option>
+        </select>
+      </div>
+      <div class="catButtons">
+        <button id="publish">Create Post</button>
+        <button id="draft">Save as Draft</button>
+      </div>
+    </script>
+
+    <script type="text/template" id="commentTemp">
+      <li class="commentList">
+      <span class="commentAuthor"><a href="/#author/<%= user.objectId %>"><%= author %></a> commented:</span>
+        <p><%= commentText %></p>
+      </li>
+    </script>
+
+
+    <script src="scripts/vendor.js"></script>
+
+    <script src="//www.parsecdn.com/js/parse-1.3.1.min.js"></script>
+
+    <script type="text/javascript">
+        window.App = {};
+        App.Models = {};
+        App.Collections = {};
+        App.Views = {};
+        App.Routers = {};
+    </script>
+
+        <script src="scripts/main.js"></script>
+</body>
+</html>
