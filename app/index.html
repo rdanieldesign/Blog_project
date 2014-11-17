@@ -36,8 +36,8 @@
           <% if(App.user == null){ %>
             <button id="navLogin"></button>
           <% } else { %>
-            <a id="navCreate" href="/#create">Create</a>
-            <a href="/#me">Me</a>
+            <a id="navCreate" href="#/create">Create</a>
+            <a href="#/me">Me</a>
             <button id="navLogin"></button>
           <% } %>
         </div>
@@ -63,31 +63,31 @@
       <% if(App.user !== null){ %>
         <% if(App.user.id === user.objectId){ %>
           <li <% if(published === false){ %>class="draft"<% } %> id="<%= objectId %>">
-            <a href="/#single/<%= objectId %>"><h2><%= title %></h2></a>
+            <a href="#/single/<%= objectId %>"><h2><%= title %></h2></a>
             <span class="postDetails">
-              <a href="/#author/<%= user.objectId %>"><%= author %></a>
+              <a href="#/author/<%= user.objectId %>"><%= author %></a>
               posted on <%= moment(updatedAt).format('MMMM Do YYYY, h:mm a') %>
-              <a class="textLink" href="/#single/<%= objectId %>">Read Post</a>
-              <a class="textLink" href="/#edit/<%= objectId %>">Edit Post</a>
+              <a class="textLink" href="#/single/<%= objectId %>">Read Post</a>
+              <a class="textLink" href="#/edit/<%= objectId %>">Edit Post</a>
             </span>
           </li>
         <% } else if(published === true){ %>
         <li class="" id="<%= objectId %>">
-          <a href="/#single/<%= objectId %>"><h2><%= title %></h2></a>
+          <a href="#/single/<%= objectId %>"><h2><%= title %></h2></a>
           <span class="postDetails">
-            <a href="/#author/<%= user.objectId %>"><%= author %></a>
+            <a href="#/author/<%= user.objectId %>"><%= author %></a>
             posted on <%= moment(updatedAt).format('MMMM Do YYYY, h:mm a') %>
-            <a class="textLink" href="/#single/<%= objectId %>">Read Post</a>
+            <a class="textLink" href="#/single/<%= objectId %>">Read Post</a>
           </span>
         </li>
       <% }} else { %>
       <% if(published === true){ %>
       <li class="" id="<%= objectId %>">
-        <a href="/#single/<%= objectId %>"><h2><%= title %></h2></a>
+        <a href="#/single/<%= objectId %>"><h2><%= title %></h2></a>
         <span class="postDetails">
-          <a href="/#author/<%= user.objectId %>"><%= author %></a>
+          <a href="#/author/<%= user.objectId %>"><%= author %></a>
           posted on <%= moment(updatedAt).format('MMMM Do YYYY, h:mm a') %>
-          <a class="textLink" href="/#single/<%= objectId %>">Read Post</a>
+          <a class="textLink" href="#/single/<%= objectId %>">Read Post</a>
         </span>
       </li>
       <% }} %>
@@ -95,9 +95,9 @@
 
     <script type="text/template" id="singlePost">
       <h2 id="singleTitle"><%= title %></h2>
-      <a id="postAuthor" href="/#author/<%= user.objectId %>"> by <%= author %></a>
+      <a id="postAuthor" href="#/author/<%= user.objectId %>"> by <%= author %></a>
       <p id="singleCopy"><%= copy %></p>
-      <span class="category">Category: <a href="/#category/<%= category %>"><%= category %></a></span>
+      <span class="category">Category: <a href="#/category/<%= category %>"><%= category %></a></span>
       <h3 class="commentHeader">Comments on "<%= title %>"</h3>
       <% if(App.user != null){ %>
       <form id="addComment">
@@ -155,7 +155,7 @@
 
     <script type="text/template" id="commentTemp">
       <li class="commentList">
-      <span class="commentAuthor"><a href="/#author/<%= user.objectId %>"><%= author %></a> commented:</span>
+      <span class="commentAuthor"><a href="#/author/<%= user.objectId %>"><%= author %></a> commented:</span>
         <p><%= commentText %></p>
       </li>
     </script>
